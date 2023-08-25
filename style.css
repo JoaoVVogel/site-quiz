@@ -9,6 +9,8 @@
 
 body{
     color: white;
+    background: #09001d;
+    overflow: hidden;
 
 }
 
@@ -55,12 +57,25 @@ body{
     background: url('./img/background.jpg') no-repeat;
     background-size: cover;
     background-position: center;
+    pointer-events: auto;
+    transition: .3s ease;
 
 }
 
-.home{
+.main.ativo{
+    filter: blur(15px);
+    pointer-events: none;
+}
+
+.container{
+    display: flex;
     height: 100vh;
     width: 100%;
+}
+
+.home{
+    position: relative;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -78,7 +93,6 @@ body{
 .conteudo-home h1{
     font-size: 78px;
     font-weight: 700;
-    text-shadow: c
 
 }
 
@@ -114,12 +128,21 @@ body{
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%) scale(.9);
     width: 500px;
     background: white;
     border-radius: 6px;
     padding: 10px 25px;
+    opacity: 0;
+    pointer-events: none;
+    transition: .3s ease;
 
+}
+
+.mensagem.ativo{
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1);
 }
 
 .mensagem h2{
@@ -179,4 +202,18 @@ body{
 .mensagem .botao-mensagem .botao-info:nth-child(2):hover{
     background: #950170;
     border-color: #950170;
+}
+
+.section-quiz{
+    position: relative;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    background-color: #950170;
+    transition: .8s ease-in-out;
+    transition-delay: .25s;
+}
+
+.section-quiz.ativo{
+    left: 0;
 }
